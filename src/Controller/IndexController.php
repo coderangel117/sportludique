@@ -18,4 +18,23 @@ class IndexController extends AbstractController
             'controller_name' => 'IndexController',
         ]);
     }
+        /**
+     * @Route("/BMX", name="BMX")
+     */
+    public function BMX(): Response
+    {
+        return $this->render('index/bmx.html.twig', [
+            'controller_name' => 'IndexController',
+        ]);
+    }
+    /**
+     * @Route("/panier", name="Panier")
+     */
+    public function panier(): Response
+    {
+
+        return $this->render('index/panier.html.twig', [
+            'controller_name' => 'bienvenue',
+        ]);
+    }
 }
