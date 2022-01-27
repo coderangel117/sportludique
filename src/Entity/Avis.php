@@ -27,6 +27,17 @@ class Avis
      */
     private $contenu;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Produit::class, inversedBy="User")
+     */
+    private $Produit;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="avis")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $User;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +63,30 @@ class Avis
     public function setContenu(string $contenu): self
     {
         $this->contenu = $contenu;
+
+        return $this;
+    }
+
+    public function getProduit(): ?Produit
+    {
+        return $this->Produit;
+    }
+
+    public function setProduit(?Produit $Produit): self
+    {
+        $this->Produit = $Produit;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->User;
+    }
+
+    public function setUser(?User $User): self
+    {
+        $this->User = $User;
 
         return $this;
     }

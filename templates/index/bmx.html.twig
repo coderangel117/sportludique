@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <!-- Page Content -->
+    <br>
+    <br>
+    <br>
+
+    <div class="featured container no-gutter">
+        <div class="row posts">
+            {% for produit in produits %}
+            <div id="vtt_bleu" class="item new col-md-4">
+                <div class="featured-item">
+                    <h2><img src="{{ produit.image}}"</h2>
+                  <h4>{{ produit.description }}</h4>
+                  <h6>{{ produit.prix }}</h6>
+                  <div  class="main-button" align="right">
+                      <a href="{{ path('Panier', {'id': produit.id}) }}">Panier</a>
+                  </div>
+                </div>
+              </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- fin article -->
+
+
+{% endblock %}
