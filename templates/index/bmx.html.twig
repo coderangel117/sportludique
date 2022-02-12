@@ -8,17 +8,18 @@
     <div class="featured container no-gutter">
         <div class="row posts">
             {% for produit in produits %}
-            <div id="vtt_bleu" class="item new col-md-4">
-                <div class="featured-item">
-                    <h2><img src="{{ produit.image}}"</h2>
-                  <h4>{{ produit.description }}</h4>
-                  <h6>{{ produit.prix }}</h6>
-                  <div  class="main-button" align="right">
-                      <a href="{{ path('Panier', {'id': produit.id}) }}">Panier</a>
-                  </div>
+                <div class="item new col-md-4">
+                    <div class="featured-item">
+                        <h2>
+                            <a href="{{ path('produit_show', {'id': produit.id}) }}"> <img src="{{ produit.image }}"  alt="image de l'article"></a>
+                        </h2>
+                        <h4>{{ produit.description }}</h4>
+                        <h6>{{ produit.prix }}</h6>
+                        <div class="main-button">
+                            <a href="{{ path('cart_add', {'id': produit.id}) }}">Panier</a>
+                        </div>
+                    </div>
                 </div>
-              </a>
-            </div>
             {% endfor %}
         </div>
     </div>
