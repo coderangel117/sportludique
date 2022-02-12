@@ -4,29 +4,30 @@
 
 {% block body %}
     <h1>Produit</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ produit.id }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ produit.description }}</td>
-            </tr>
-            <tr>
-                <th>Prix</th>
-                <td>{{ produit.prix }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td><img alt=" image de l'article" src="{{ produit.image}}"</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('produit_index') }}">back to list</a>
+    <div class="featured container no-gutter">
+        <div class="row posts">
+            {# {% for produit in produits %} #}
+            <div class="item new col-md-4">
+                <div class="featured-item">
+                    <img src="{{ produit.image }}" alt="image de l'article">
+                    <h4>{{ produit.description }}</h4>
+                    <h6>{{ produit.prix }}</h6>
+                    <div class="main-button">
+                        <a href="{{ path('cart_add', {'id': produit.id}) }}">Panier</a>
+                    </div>
+                </div>
+            </div>
+            {# {% endfor %} #}
+        </div>
+    </div>
+    Description <br>
+    {{ produit.description }} <br>
+    Prix <br>
+    {{ produit.prix }} <br>
+    <div class="BMX-item">
+        <img src="{{ produit.image }}" alt="image de l'article">
+    </div>
+    {# @TODO: maybe a link in order to edit article when connected as admin ==  true... #}
 
     <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>
 
