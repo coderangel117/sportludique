@@ -36,14 +36,4 @@ class IndexController extends AbstractController
             'produits' => $produitRepository->findAll(),
         ]);
     }
-    /**
-     * @Route("/panier", name="Panier")
-     */
-    public function panier(/*Produit $produit*/): Response
-    {
-        return $this->render('index/panier.html.twig', [
-            'controller_name' => 'bienvenue',
-//            'produit' => $produit,
-        ]);
-    }
 }
