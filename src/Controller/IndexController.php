@@ -32,7 +32,6 @@ class IndexController extends AbstractController
     public function BMX(ProduitRepository $produitRepository): Response
     {
         return $this->render('index/bmx.html.twig', [
-            'controller_name' => 'IndexController',
             'produits' => $produitRepository->findAll(),
         ]);
     }
